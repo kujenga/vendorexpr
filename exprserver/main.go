@@ -1,4 +1,4 @@
-package vendorexpr
+package exprserver
 
 import (
 	"log"
