@@ -1,4 +1,4 @@
-package main
+package vendorexpr
 
 import (
 	"log"
@@ -7,13 +7,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main() {
+func init() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("handling request")
 		w.Write([]byte("you got it!"))
 	})
 
-	log.Println("starting server...")
-	log.Fatalln(http.ListenAndServe(":8080", r))
+	http.Handle("/", r)
 }
